@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Долевое строительство</title>
+  </head>
+  <body>
+    <script>
+      let arr = ["1.5", "3", "6", "1.5"];
+      var time = performance.now();
+      let result = []; // buff array for collect result
+      function findPercent(array) {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+          // getting sum of numbers in array
+          sum += +array[i];
+        }
+        for (let i = 0; i < array.length; i++) {
+          // calculate percent for each element
+          result.push(((array[i] * 100) / sum).toFixed(3).toString());
+          // toFixed - returning number with precision number up to three symbols after semicolon
+        }
+      }
+
+      findPercent(arr);
+      console.log(result);
+      time = performance.now() - time;
+      console.log("Время выполнения = ", time);
+      // **** вычислительная сложность алгоритма и оценка необходимой памяти для его выполнения ****
+      // N - равно количеству входных данных(в этом случайе array.length).
+      // так как это последовательный алгоритм надо сложить количество входных данных ->   N + N = 2N
+      // поскольку считается что N может быть бесконечностью,  получается  бесконечность + бесконечность = бесконечность
+      // по этому  O(2N) = O(N);
+
+      // *** ограничения на размер входного массива, при котором алгоритм будет ***
+      // ** выполняться разумное время (до 5 секунд, например).**
+      // это зависит от нескольких факторов -
+      // в каком среде был запущен программа,
+      // какие данные в элементе масива ( может элемент по большего размера)
+      // в среде моего компа получилось почти 18,000,000 элементов , учитывая что элемент будет похожа на элемента из примера.
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Кэш данных об облигациях</title>
+  </head>
+  <body>
+    <script>
+      const getBondsData = async ({ date, isins }) => {
+        // getting data from API and returning as array
+        const result = await http.post({ url: `/bonds/${date}`, body: isins });
+        return result;
+      };
+
+      localStorage(
+        "bondsData",
+        JSON.stringify(
+          getBondsData({
+            date: "20180120",
+            isins: ["XS0971721963", "RU000A0JU4L3"]
+          })
+        )
+      );
+      // saving data to localStorage of browser.
+      // **** вычислительная сложность алгоритма и оценка необходимой памяти для его выполнения ****
+      // O(1)
+    </script>
+  </body>
+</html>
